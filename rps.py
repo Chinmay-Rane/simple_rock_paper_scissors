@@ -1,5 +1,16 @@
 import random
 
+def play_again():
+
+    again=input("Want to play again?: ")
+    if(again=="yes"):
+        main()
+    elif(again=="no"):
+        thx()
+    
+def thx():
+    print("Thanks for playing")
+
 guess = ("rock", "paper", "scissors")
 
 def get_valid_move():
@@ -8,24 +19,26 @@ def get_valid_move():
         print("Invalid Input")
         move = input("Enter your move: ")
     return move
+def main():
+    move = get_valid_move()
+    comp = random.choice(guess)
 
-move = get_valid_move()
-comp = random.choice(guess)
+    print(f"Computer: {comp}")
+    print(f"Your move: {move}")
 
-print(f"Computer: {comp}")
-print(f"Your move: {move}")
-
-if(move==comp):
-    print("Its a draw")
-elif(move=="scissors" and comp=="paper"):
-    print("You win")
-elif(move=="rock" and comp=="scissors"):
-    print("You win")
-elif(move=="paper" and comp=="rock"):
-    print("You win")
-elif(comp=="scissors" and move=="paper"):
-    print("You Lose")
-elif(comp=="rock" and move=="scissors"):
-    print("You Lose")
-elif(comp=="paper" and move=="rock"):
-    print("You Lose")
+    if(move==comp):
+        print("Its a draw")
+    elif(move=="scissors" and comp=="paper"):
+        print("You win")
+    elif(move=="rock" and comp=="scissors"):
+        print("You win")
+    elif(move=="paper" and comp=="rock"):
+        print("You win")
+    elif(comp=="scissors" and move=="paper"):
+        print("You Lose")
+    elif(comp=="rock" and move=="scissors"):
+        print("You Lose")
+    elif(comp=="paper" and move=="rock"):
+        print("You Lose")
+    play_again()
+main()
